@@ -67,7 +67,7 @@ public class NashEquilibrium {
                         },
                         new double[]{
                                 // Стратегии игрока 1
-                                -10, 5, 10
+                                -10, 10, 10
                         },
                         new double[]{
                                 // Стратегии игрока 1
@@ -83,7 +83,7 @@ public class NashEquilibrium {
                         },
                         new double[]{
                                 // Стратегии игрока 2
-                                10, 5, -10
+                                10, 10, -10
                         },
                         new double[]{
                                 // Стратегии игрока 2
@@ -181,7 +181,8 @@ public class NashEquilibrium {
             P[n] = new double[sNum[n]];
             PLast[n] = new double[sNum[n]];
 
-            P[n][0] = 1;
+            P[n][1] = 0.99;
+            P[n][0] = 0.01;
             /*for (int k = 0; k < P[n].length; k++)
             {
                 // Первоначальное заполнение - равновероятно
@@ -216,6 +217,8 @@ public class NashEquilibrium {
         int iNum = 0;
         boolean continueRun = true;
 
+        // TODO - проблема в том, что мы можем иметь большой отрицательный коэффициент и отнять определенное значение, но это отнятое значение
+        // пойдет не равномерно в соответствии с наибольшими знаениями, а уйдет в конец
         while (continueRun)
         {
             continueRun = false;
